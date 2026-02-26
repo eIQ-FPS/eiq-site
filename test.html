@@ -1,18 +1,255 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>eIQ 受験</title>
-<link rel="stylesheet" href="assets/styles.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>eIQ｜受験</title>
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#121823; --card2:#0f1520; --text:#e8eefc; --muted:#a8b3cf;
+      --line:#22304a; --btn:#2b6fff; --btn2:#1c2433; --ok:#39d98a; --warn:#ffcc66;
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+      background: radial-gradient(1200px 600px at 20% 0%, #142038 0%, var(--bg) 55%);
+      color:var(--text);
+    }
+    a{color:#9bb7ff; text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1000px; margin:0 auto; padding:28px 18px 60px}
+    .topnav{display:flex; gap:10px; font-size:14px; margin-bottom:18px; opacity:.95}
+    .title{display:flex; flex-direction:column; gap:6px; margin:10px 0 18px}
+    .title h1{margin:0; font-size:34px; letter-spacing:.2px}
+    .title p{margin:0; color:var(--muted); line-height:1.6}
+    .grid{display:grid; grid-template-columns:1fr; gap:14px}
+    @media(min-width:920px){ .grid{grid-template-columns: 1fr 1fr} }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:16px 16px 14px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.35);
+    }
+    .card h2{margin:0 0 8px; font-size:16px}
+    .card p, .card li{color:var(--muted); line-height:1.7}
+    .card ul{margin:8px 0 0 18px}
+    .row{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:12px; border:1px solid transparent;
+      background:var(--btn); color:white; font-weight:700; font-size:14px;
+      cursor:pointer;
+    }
+    .btn.secondary{background:var(--btn2); border-color:var(--line); color:var(--text)}
+    .btn:active{transform: translateY(1px)}
+    .badge{display:inline-flex; gap:8px; align-items:center; font-size:12px; color:var(--muted)}
+    .dot{width:8px; height:8px; border-radius:999px; background:var(--ok)}
+    .dot.warn{background:var(--warn)}
+    .big{
+      grid-column:1/-1;
+      padding:18px;
+    }
+    textarea{
+      width:100%;
+      min-height: 360px;
+      resize:vertical;
+      padding:14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: #0b111c;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.7;
+      outline:none;
+    }
+    textarea:focus{border-color:#3b62c7; box-shadow:0 0 0 3px rgba(43,111,255,.18)}
+    .meta{
+      display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between;
+      margin-top:10px; color:var(--muted); font-size:12px;
+    }
+    .meta strong{color:var(--text)}
+    .footnote{
+      margin-top:14px; color:var(--muted); font-size:12px; line-height:1.7;
+      opacity:.95
+    }
+    .pill{
+      padding:6px 10px; border-radius:999px; border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+    }
+  </style>
 </head>
 <body>
-<nav><a href="index.html">概要</a> | <a href="test.html">受験</a> | <a href="rules.html">ルール</a> | <a href="faq.html">FAQ</a></nav>
-<main>
-<h1>受験</h1>
-<p>問題文をここに貼り付けてください。</p>
-<textarea style="width:100%;min-height:300px"></textarea>
-</main>
-<script src="assets/app.js"></script>
+  <div class="wrap">
+
+    <div class="topnav">
+      <a href="./index.html">概要</a>｜
+      <a href="./test.html"><strong>受験</strong></a>｜
+      <a href="./rules.html">ルール</a>｜
+      <a href="./faq.html">FAQ</a>｜
+      <a href="./paid.html">支払い完了者ページ</a>
+    </div>
+
+    <div class="title">
+      <h1>受験（eIQ）</h1>
+      <p>
+        このページは<strong>回答作成の作業台</strong>。<br />
+        点数は<strong>本人以外に共有しない前提</strong>（マウント合戦防止）。
+      </p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <h2>0) 受験ルール（最短）</h2>
+        <ul>
+          <li>【 】＝単語（自由記入）／｛ ｝＝短文（端的・明瞭）</li>
+          <li>制限時間なし（ただし時間は計測）</li>
+          <li>AI/スマホ使用OK（何をどの程度使ったか自己申告）</li>
+        </ul>
+        <div class="footnote">
+          <span class="badge"><span class="dot"></span>ゴール：過去の自分より「運用」が上がること</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>1) 問題文を取得（Googleドキュメント）</h2>
+        <p>リンクは <span class="pill">/copy</span> なので、自分のDriveにコピーして開けます。</p>
+        <div class="row">
+          <a class="btn" href="https://docs.google.com/document/u/2/d/1fzdslulWb_uIEUx_wrxH23DJ8mgmKRuLKr06c0T1lRA/copy" target="_blank" rel="noopener">問題文をコピーして開く</a>
+          <button class="btn secondary" id="copyDocLink">リンクをコピー</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2) 回答を提出（Googleフォーム）</h2>
+        <p>作った回答をフォームに転記して提出します。</p>
+        <div class="row">
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSecO_VvVy2k5AULRKy0_RLm7I9p04rRSWgNDWTIzLjLp50Kaw/viewform?usp=header" target="_blank" rel="noopener">回答フォームを開く</a>
+          <button class="btn secondary" id="copyFormLink">リンクをコピー</button>
+        </div>
+        <div class="footnote">
+          <span class="badge"><span class="dot warn"></span>「点数」は外に出さない（比較は自分の過去ログだけ）</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>3) 受験のコツ（点を上げるやつ）</h2>
+        <ul>
+          <li>「次の一手」を必ず書く（失敗時のリカバリ含む）</li>
+          <li>理由は短く、検証できる形にする</li>
+          <li>迷ったら「最小テスト」を置く（小さく試す）</li>
+        </ul>
+        <p class="footnote">※長文より「判断できる短文」が強い。</p>
+      </div>
+
+      <div class="card big">
+        <h2>回答作成エリア（ここに問題文 or 自分の回答を貼る）</h2>
+        <p>ここは自動保存されます（このブラウザ内）。</p>
+        <textarea id="area" placeholder="ここに貼り付け…（問題文 / 自分の下書き / 回答文 どれでもOK）"></textarea>
+
+        <div class="meta">
+          <div>
+            文字数：<strong id="count">0</strong>
+            <span style="margin-left:10px">保存：<strong id="saved">未</strong></span>
+          </div>
+          <div class="row">
+            <button class="btn secondary" id="copyAll">全文コピー</button>
+            <button class="btn secondary" id="clearAll">クリア</button>
+          </div>
+        </div>
+
+        <div class="footnote">
+          提出前チェック：
+          <ul>
+            <li>Q1〜Q8で「事実 / 仮説 / 次の一手」がズレてない</li>
+            <li>自己申告（AI%など）が空欄になってない</li>
+            <li>点数の扱い：本人以外に共有しない</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const KEY = "eiq_test_draft_v1";
+    const area = document.getElementById("area");
+    const count = document.getElementById("count");
+    const saved = document.getElementById("saved");
+
+    const docUrl = "https://docs.google.com/document/u/2/d/1fzdslulWb_uIEUx_wrxH23DJ8mgmKRuLKr06c0T1lRA/copy";
+    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSecO_VvVy2k5AULRKy0_RLm7I9p04rRSWgNDWTIzLjLp50Kaw/viewform?usp=header";
+
+    function updateMeta() {
+      count.textContent = (area.value || "").length.toString();
+    }
+
+    function setSaved(v){
+      saved.textContent = v;
+    }
+
+    // load
+    try {
+      const v = localStorage.getItem(KEY);
+      if (v) { area.value = v; setSaved("復元済"); }
+      else { setSaved("未"); }
+    } catch(e) {}
+
+    updateMeta();
+
+    // autosave
+    let t = null;
+    area.addEventListener("input", () => {
+      updateMeta();
+      setSaved("保存中…");
+      clearTimeout(t);
+      t = setTimeout(() => {
+        try { localStorage.setItem(KEY, area.value || ""); setSaved("保存済"); }
+        catch(e){ setSaved("失敗"); }
+      }, 250);
+    });
+
+    async function copyText(text){
+      try{
+        await navigator.clipboard.writeText(text);
+        return true;
+      }catch(e){
+        // fallback
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        return ok;
+      }
+    }
+
+    document.getElementById("copyAll").addEventListener("click", async () => {
+      const ok = await copyText(area.value || "");
+      alert(ok ? "コピーしました" : "コピー失敗（ブラウザ制限の可能性）");
+    });
+
+    document.getElementById("clearAll").addEventListener("click", () => {
+      const ok = confirm("下書きを消します。よろしい？（このブラウザ内の保存も消えます）");
+      if(!ok) return;
+      area.value = "";
+      updateMeta();
+      try { localStorage.removeItem(KEY); } catch(e){}
+      setSaved("未");
+    });
+
+    document.getElementById("copyDocLink").addEventListener("click", async () => {
+      const ok = await copyText(docUrl);
+      alert(ok ? "問題文リンクをコピーしました" : "コピー失敗");
+    });
+
+    document.getElementById("copyFormLink").addEventListener("click", async () => {
+      const ok = await copyText(formUrl);
+      alert(ok ? "フォームリンクをコピーしました" : "コピー失敗");
+    });
+  </script>
 </body>
 </html>
