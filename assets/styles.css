@@ -1,1 +1,59 @@
-body{font-family:system-ui,-apple-system,'Noto Sans JP',sans-serif;margin:0;padding:20px;} nav{margin-bottom:20px;}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  background:#0b0f14;
+  color:#e8eefc;
+}
+
+.wrap{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+.nav{
+  display:flex;
+  gap:16px;
+  margin-bottom:30px;
+}
+
+.nav a{
+  color:#9bb7ff;
+  text-decoration:none;
+}
+
+h1{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.lead{
+  color:#a8b3cf;
+  margin-bottom:30px;
+}
+
+.card{
+  background:#121823;
+  padding:20px;
+  border-radius:16px;
+  margin-bottom:20px;
+  border:1px solid #22304a;
+}
+
+.card h2{
+  margin-top:0;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 22px;
+  background:#2b6fff;
+  color:white;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.center{
+  text-align:center;
+}
